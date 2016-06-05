@@ -1,2 +1,6 @@
 # hello-world
-Just another repository
+
+
+Hi everyone!
+
+I like basketball. I like eating. I like traveling.
