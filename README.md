@@ -1,3 +1,2 @@
-# hello-world
-Just another repository
-But, this is the master file.
+# Javascript application
+This is the folder for making some apps built by Javascript
