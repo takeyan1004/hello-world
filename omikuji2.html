@@ -1,0 +1,31 @@
+</!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>おみくじ</title>
+</head>
+
+
+<body>
+
+
+<div id = "result">?</div>
+<div id = "btn">今日の運勢は</div>
+
+<script>
+	(function(){
+		"use strict";
+document.getElementById("btn").addEventListener("click", function(){
+	var results = ["大吉", "中吉", "小吉", "大凶","不明"];
+var result = Math.floor(Math.random()*results.length);
+
+document.getElementById("result").innerHTML = results[result];
+
+});
+	})();
+
+
+</script>
+
+</body>
+</html>
