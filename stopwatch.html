@@ -1,10 +1,9 @@
-<!--by dotinstall stopwatch -->
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
 	<title>Stopwatch</title>
-
 <style>
 body{
 background: #e0e0e0;
@@ -41,12 +40,13 @@ cursor: pointer;
 
 </style>
 
+
 </head>
 <body>
 <div id ="timerText">0.00</div>
-<div id ="start" class="btn active">START</div>
-<div id ="stop" class="btn inactive">STOP</div>
-<div id ="reset" class="btn active">RESET</div>
+<div id ="start">START</div>
+<div id ="stop">STOP</div>
+<div id ="reset">RESET</div>
 <script>
 	
 (function(){
@@ -62,9 +62,9 @@ var resetButon = document.getElementById("reset");
 var timerText = document.getElementById("timerText");
 
 function setButtonState(start, stop, reset){
-startButton.disabled = start? "btn active": "btn inactive";
-stopButton.disabled = stop? "btn active": "btn inactive";
-resetButon.disabled = reset? "btn active": "btn inactive";
+startButton.className = start? "btn active": "btn inactive";
+stopButton.className = stop? "btn active": "btn inactive";
+resetButon.className = reset? "btn active": "btn inactive";
 
 }
 setButtonState(true, false, false);
