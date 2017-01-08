@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        top:50px;
+        left: 10px;
+        height: 560px;
+        width:500px;
+      }
+      #findplaces {
+        position: absolute;
+        text-align: left;
+        left: 10px;
+        width: 200px;
+        top: 0px;
+        padding: 4px;
+      }
+      #locationField {
+        position: absolute;
+        height: 25px;
+        left: 180px;
+        width: 190px;
+        top: 0px;
+        padding: 4px;
+      }
+      #controls {
+        position: absolute;
+        left: 320px;
+        width: 140px;
+        top: 0px;
+        padding: 4px;
+      }
+      #secondcontrols {
+        position: absolute;
+        left: 415px;
+        width: 140px;
+        top: 0px;
+        padding: 4px;
+      }
+      .foodphotos {
+        position: absolute;
+        left: 550px;
+        width: 240px;
+        top: 100px;
+        padding: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id ="findplaces">find best restaurant: </div>
+    <div id="locationField">
+      <input id="autocomplete" placeholder="enter a restaurant" type="text">
+    </div>
+        <div id="controls">
+      <select id="town">
+        <option value="all" selected>All</option>
+        <option value="ginza">Ginza</option>
+        <option value="shibuya">Shibuya</option>
+        <option value="shinjuku">Shinjuku</option>
+        <option value="asakusa">Asakusa</option>
+        <option value="nishiazabu">Nishiazabu</option>
+        <option value="ebisu">Ebisu</option>
+        <option value="akihabara">Akihabara</option>
+        <option value="roppongi">Roppongi</option>
+      </select>
+    </div>
+
+        <div id="secondcontrols">
+      <select id="food">
+        <option value="all" selected>All</option>
+        <option value="cafe">Cafe</option>
+        <option value="meat">Meat</option>
+        <option value="ramen">Ramen</option>
+        <option value="noodle">Noodle</option>
+        <option value="seafood">Seafood</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+<div id ="photos">
+<div id="cafe" class="foodphotos" style="display: none">
+<table border="0">
+  <tr>
+   <td id = "cafePhoto1"><img src="./restaurant pics/cafe bakery.jpg"alt="sample1"width="210" height="160"></td>
+   <td id = "cafePhoto2"><img src="./restaurant pics/cafe donuts.jpg"alt="sample2"width="210" height="160"></td>
+   <td id = "cafePhoto3"><img src="./restaurant pics/cafe maid.jpg"alt="sample3"width="210" height="160"></td>
+  </tr>
+  <tr>
+   <td id = "cafePhoto4"><img src="./restaurant pics/cafe neko.jpg"alt="sample4"width="210" height="160"></td>
+   <td id = "cafePhoto5"><img src="./restaurant pics/cafe segafredo.jpg"alt="sample5"width="210" height="160"></td>
+   <td id = "cafePhoto6"><img src="./restaurant pics/cafe starbucks.jpg"alt="sample6"width="210" height="160"></td>
+  </tr>
+ </table>
+</div>
+
+<div id="meat" class="foodphotos" style="display: none">
+<table border="0">
+  <tr>
+   <td id = "meatPhoto1"><img src="./restaurant pics/meat gyudon.jpg"alt="sample1"width="210" height="160"></td>
+   <td id = "meatPhoto2"><img src="./restaurant pics/meat syabusyabu.jpg"alt="sample2"width="210" height="160"></td>
+   <td id = "meatPhoto3"><img src="./restaurant pics/meat steak.jpg"alt="sample3"width="210" height="160"></td>
+  </tr>
+  <tr>
+   <td id = "meatPhoto4"><img src="./restaurant pics/meat yakiniku.jpg"alt="sample4"width="210" height="160"></td>
+   <td id = "meatPhoto5"><img src="./restaurant pics/meat yakitori.jpg"alt="sample5"width="210" height="160"></td>
+   <td id = "meatPhoto6"><img src="./restaurant pics/meat hamburg.jpg"alt="sample6"width="210" height="160"></td>
+  </tr>
+ </table>
+</div>
+
+<div id="ramen" class="foodphotos" style="display: none">
+<table border="0">
+  <tr>
+   <td id = "ramenPhoto1"><img src="./restaurant pics/ramen aburasoba.jpg"alt="sample1"width="210" height="160"></td>
+   <td id = "ramenPhoto2"><img src="./restaurant pics/ramen iekei.jpg"alt="sample2"width="210" height="160"></td>
+   <td id = "ramenPhoto3"><img src="./restaurant pics/ramen jiro.jpg"alt="sample3"width="210" height="160"></td>
+  </tr>
+  <tr>
+   <td id = "ramenPhoto4"><img src="./restaurant pics/ramen shoyu.jpg"alt="sample4"width="210" height="160"></td>
+   <td id = "ramenPhoto5"><img src="./restaurant pics/ramen tonkotsu.jpg"alt="sample5"width="210" height="160"></td>
+   <td id = "ramenPhoto6"><img src="./restaurant pics/ramen tsukemen.jpg"alt="sample6"width="210" height="160"></td>
+  </tr>
+ </table>
+</div>
+
+<div id="noodle" class="foodphotos" style="display: none">
+<table border="0">
+  <tr>
+   <td id = "noodlePhoto1"><img src="./restaurant pics/noodle champon.jpg"alt="sample1"width="210" height="160"></td>
+   <td id = "noodlePhoto2"><img src="./restaurant pics/noodle hidakaya.jpg"alt="sample2"width="210" height="160"></td>
+   <td id = "noodlePhoto3"><img src="./restaurant pics/noodle pasta.jpg"alt="sample3"width="210" height="160"></td>
+  </tr>
+  <tr>
+   <td id = "noodlePhoto4"><img src="./restaurant pics/noodle soba.jpg"alt="sample4"width="210" height="160"></td>
+   <td id = "noodlePhoto5"><img src="./restaurant pics/noodle tantanmen.jpg"alt="sample5"width="210" height="160"></td>
+   <td id = "noodlePhoto6"><img src="./restaurant pics/noodle udon.jpg"alt="sample6"width="210" height="160"></td>
+  </tr>
+ </table>
+</div>
+
+<div id="seafood" class="foodphotos" style="display: none">
+<table border="0">
+  <tr>
+   <td id = "seafoodPhoto1"><img src="./restaurant pics/seafood kaki.jpg"alt="sample1"width="210" height="160"></td>
+   <td id = "seafoodPhoto2"><img src="./restaurant pics/seafood sashimi.jpg"alt="sample2"width="210" height="160"></td>
+   <td id = "seafoodPhoto3"><img src="./restaurant pics/seafood yakizakana.jpeg"alt="sample3"width="210" height="160"></td>
+  </tr>
+  <tr>
+   <td id = "seafoodPhoto4"><img src="./restaurant pics/seafood sushi rotate.jpg"alt="sample4"width="210" height="160"></td>
+   <td id = "seafoodPhoto5"><img src="./restaurant pics/seafood unagi.jpg"alt="sample5"width="210" height="160"></td>
+   <td id = "seafoodPhoto6"><img src="./restaurant pics/seafood sushi.jpg"alt="sample6"width="210" height="160"></td>
+  </tr>
+ </table>
+</div>
+
+<div id="other" class="foodphotos" style="display: none">
+<table border="0">
+  <tr>
+   <td id = "otherPhoto1"><img src="./restaurant pics/other hamburger.jpg"alt="sample1"width="210" height="160"></td>
+   <td id = "otherPhoto2"><img src="./restaurant pics/other monjayaki.jpeg"alt="sample2"width="210" height="160"></td>
+   <td id = "otherPhoto3"><img src="./restaurant pics/other okonomiyaki.jpg"alt="sample3"width="210" height="160"></td>
+  </tr>
+  <tr>
+   <td id = "otherPhoto4"><img src="./restaurant pics/other otoya.jpg"alt="sample4"width="210" height="160"></td>
+   <td id = "otherPhoto5"><img src="./restaurant pics/other tebasaki.jpg"alt="sample5"width="210" height="160"></td>
+   <td id = "otherPhoto6"><img src="./restaurant pics/other curry.jpg"alt="sample6"width="210" height="160"></td>
+  </tr>
+ </table>
+</div>
+</div>
+    <div id="map"></div>
+    <script>
+var map;
+var towns = {
+"all": {
+    center: {lat: 35.681298, lng: 139.766247},
+    zoom: 11
+},
+"ginza": {
+    center: {lat: 35.672114, lng: 139.770825},
+    zoom: 15
+},
+"shibuya": {
+    center: {lat: 35.661777, lng: 139.704051},
+    zoom: 15
+},
+"shinjuku": {
+    center: {lat: 35.69384, lng: 139.703549},
+    zoom: 15
+},
+"asakusa": {
+    center: {lat: 35.711877, lng: 139.796697},
+    zoom: 15
+},
+"nishiazabu": {
+    center: {lat: 35.661461, lng: 139.724888},
+    zoom: 15
+},
+"ebisu": {
+    center: {lat: 35.646971, lng: 139.718614},
+    zoom: 15
+},
+"akihabara": {
+    center: {lat: 35.702069, lng: 139.775327},
+    zoom: 15
+},
+"roppongi": {
+    center: {lat: 35.664122, lng: 139.729426},
+    zoom: 15
+}
+};
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 35.681298, lng: 139.766247},
+    zoom: 12
+  });
+  document.getElementById('town').addEventListener(
+      'change', setAutocompleteTown);
+  document.getElementById("food").addEventListener("change", showPhotos
+    );
+  document.getElementById("cafePhoto1").addEventListener("click", cafePhoto1Selected);
+  document.getElementById("cafePhoto2").addEventListener("click", cafePhoto2Selected);
+  document.getElementById("cafePhoto3").addEventListener("click", cafePhoto3Selected);
+  document.getElementById("cafePhoto4").addEventListener("click", cafePhoto4Selected);
+  document.getElementById("cafePhoto5").addEventListener("click", cafePhoto5Selected);
+  document.getElementById("cafePhoto6").addEventListener("click", cafePhoto6Selected);
+
+  document.getElementById("meatPhoto1").addEventListener("click", meatPhoto1Selected);
+  document.getElementById("meatPhoto2").addEventListener("click", meatPhoto2Selected);
+  document.getElementById("meatPhoto3").addEventListener("click", meatPhoto3Selected);
+  document.getElementById("meatPhoto4").addEventListener("click", meatPhoto4Selected);
+  document.getElementById("meatPhoto5").addEventListener("click", meatPhoto5Selected);
+  document.getElementById("meatPhoto6").addEventListener("click", meatPhoto6Selected);
+
+  document.getElementById("ramenPhoto1").addEventListener("click", ramenPhoto1Selected);
+  document.getElementById("ramenPhoto2").addEventListener("click", ramenPhoto2Selected);
+  document.getElementById("ramenPhoto3").addEventListener("click", ramenPhoto3Selected);
+  document.getElementById("ramenPhoto4").addEventListener("click", ramenPhoto4Selected);
+  document.getElementById("ramenPhoto5").addEventListener("click", ramenPhoto5Selected);
+  document.getElementById("ramenPhoto6").addEventListener("click", ramenPhoto6Selected);
+
+  document.getElementById("noodlePhoto1").addEventListener("click", noodlePhoto1Selected);
+  document.getElementById("noodlePhoto2").addEventListener("click", noodlePhoto2Selected);
+  document.getElementById("noodlePhoto3").addEventListener("click", noodlePhoto3Selected);
+  document.getElementById("noodlePhoto4").addEventListener("click", noodlePhoto4Selected);
+  document.getElementById("noodlePhoto5").addEventListener("click", noodlePhoto5Selected);
+  document.getElementById("noodlePhoto6").addEventListener("click", noodlePhoto6Selected);
+
+  document.getElementById("seafoodPhoto1").addEventListener("click", seafoodPhoto1Selected);
+  document.getElementById("seafoodPhoto2").addEventListener("click", seafoodPhoto2Selected);
+  document.getElementById("seafoodPhoto3").addEventListener("click", seafoodPhoto3Selected);
+  document.getElementById("seafoodPhoto4").addEventListener("click", seafoodPhoto4Selected);
+  document.getElementById("seafoodPhoto5").addEventListener("click", seafoodPhoto5Selected);
+  document.getElementById("seafoodPhoto6").addEventListener("click", seafoodPhoto6Selected);
+
+  document.getElementById("otherPhoto1").addEventListener("click", otherPhoto1Selected);
+  document.getElementById("otherPhoto2").addEventListener("click", otherPhoto2Selected);
+  document.getElementById("otherPhoto3").addEventListener("click", otherPhoto3Selected);
+  document.getElementById("otherPhoto4").addEventListener("click", otherPhoto4Selected);
+  document.getElementById("otherPhoto5").addEventListener("click", otherPhoto5Selected);
+  document.getElementById("otherPhoto6").addEventListener("click", otherPhoto6Selected);
+
+//google map search test
+  service = new google.maps.places.PlacesService(map);
+}
+
+function setAutocompleteTown(){
+var town = document.getElementById('town').value;
+//if(town === "all"){
+//    map.setCenter({lat: 35.681298, lng: 139.766247});
+//    map.setZoom(11);
+//}else{
+    map.setCenter(towns[town].center);
+    map.setZoom(towns[town].zoom);
+//}
+}
+
+function showPhotos(){
+var food = document.getElementById("food").value;
+　　　　if(food === "cafe"){
+clearPhoto();
+document.getElementById("cafe").style.display = "";
+}else if(food === "meat"){
+clearPhoto();
+document.getElementById("meat").style.display = "";
+}else if(food === "ramen"){
+clearPhoto();
+document.getElementById("ramen").style.display = "";
+}else if(food === "noodle"){
+clearPhoto();
+document.getElementById("noodle").style.display = "";
+}else if(food === "seafood"){
+clearPhoto();
+document.getElementById("seafood").style.display = "";
+}else if(food === "other"){
+clearPhoto();
+document.getElementById("other").style.display = "";
+}else{
+clearPhoto();
+}
+}
+
+function clearPhoto(){
+var foodphotos = document.getElementsByClassName("foodphotos");
+for (var i=0;i<foodphotos.length;i++) {
+  foodphotos[i].style.display = "none";
+}
+}
+
+//test
+function searchMap(foodoption, townoption){
+
+var request = {
+    //Abstract town option based on the area option
+    location: townoption,
+    radius: '500',
+  //Abstract foodoption based on the photo option
+    query: foodoption
+  };
+
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+}
+
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+//infowindow
+infowindow = new google.maps.InfoWindow();
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
+}
+service.textSearch(request, callback);
+//test end
+}
+
+function cafePhoto1Selected(){
+  //need to clear up all the search results and markers at first
+
+
+  //need to Abstract "パン屋" based on the photo option
+document.getElementById('autocomplete').value = "パン屋";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function cafePhoto2Selected(){
+document.getElementById('autocomplete').value = "ドーナツ";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function cafePhoto3Selected(){
+document.getElementById('autocomplete').value = "メイド喫茶";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function cafePhoto4Selected(){
+document.getElementById('autocomplete').value = "猫カフェ";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function cafePhoto5Selected(){
+document.getElementById('autocomplete').value = "エスプレッソ";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function cafePhoto6Selected(){
+document.getElementById('autocomplete').value = "スターバックス";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function meatPhoto1Selected(){
+document.getElementById('autocomplete').value = "牛丼";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function meatPhoto2Selected(){
+document.getElementById('autocomplete').value = "しゃぶしゃぶ";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function meatPhoto3Selected(){
+document.getElementById('autocomplete').value = "ステーキ";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function meatPhoto4Selected(){
+document.getElementById('autocomplete').value = "焼肉";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function meatPhoto5Selected(){
+document.getElementById('autocomplete').value = "焼き鳥";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function meatPhoto6Selected(){
+document.getElementById('autocomplete').value = "ハンバーグ";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function ramenPhoto1Selected(){
+document.getElementById('autocomplete').value = "まぜそば";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function ramenPhoto2Selected(){
+document.getElementById('autocomplete').value = "家系ラーメン";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function ramenPhoto3Selected(){
+document.getElementById('autocomplete').value = "二郎ラーメン";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function ramenPhoto4Selected(){
+document.getElementById('autocomplete').value = "醤油ラーメン";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function ramenPhoto5Selected(){
+document.getElementById('autocomplete').value = "とんこつラーメン";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function ramenPhoto6Selected(){
+document.getElementById('autocomplete').value = "つけ麺";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function noodlePhoto1Selected(){
+document.getElementById('autocomplete').value = "長崎ちゃんぽん";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function noodlePhoto2Selected(){
+document.getElementById('autocomplete').value = "ラーメン";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function noodlePhoto3Selected(){
+document.getElementById('autocomplete').value = "すぱ次郎";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function noodlePhoto4Selected(){
+document.getElementById('autocomplete').value = "蕎麦屋";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function noodlePhoto5Selected(){
+document.getElementById('autocomplete').value = "担々麺";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function noodlePhoto6Selected(){
+document.getElementById('autocomplete').value = "うどん";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function seafoodPhoto1Selected(){
+document.getElementById('autocomplete').value = "オイスターバー";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function seafoodPhoto2Selected(){
+document.getElementById('autocomplete').value = "海鮮居酒屋";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function seafoodPhoto3Selected(){
+document.getElementById('autocomplete').value = "魚定食";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function seafoodPhoto4Selected(){
+document.getElementById('autocomplete').value = "回転寿司";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function seafoodPhoto5Selected(){
+document.getElementById('autocomplete').value = "うなぎ";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function seafoodPhoto6Selected(){
+document.getElementById('autocomplete').value = "高級寿司";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function otherPhoto1Selected(){
+document.getElementById('autocomplete').value = "ハンバーガー";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function otherPhoto2Selected(){
+document.getElementById('autocomplete').value = "もんじゃ焼き";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function otherPhoto3Selected(){
+document.getElementById('autocomplete').value = "お好み焼き";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function otherPhoto4Selected(){
+document.getElementById('autocomplete').value = "定食屋";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function otherPhoto5Selected(){
+document.getElementById('autocomplete').value = "手羽先";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+function otherPhoto6Selected(){
+document.getElementById('autocomplete').value = "カレーライス";
+searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
+}
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI_LjRqwbsW3R5UkbMoqx2GfKCYJINHOU&libraries=places&signed_in=true&callback=initMap"
+        async defer></script>
+  </body>
+</html>
