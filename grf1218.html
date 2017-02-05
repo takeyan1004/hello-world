@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Map</title>
+    <title>Find Best Restaurant</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
@@ -71,6 +71,8 @@
     <div id="locationField">
       <input id="autocomplete" placeholder="enter a restaurant" type="text">
     </div>
+
+<!--area and food category options start from below-->
         <div id="controls">
       <select id="town">
         <option value="all" selected>All</option>
@@ -96,21 +98,23 @@
         <option value="other">Other</option>
       </select>
     </div>
+<!--area and food category options end-->
 
 <div id="delete"><input onclick="deleteMarkers();" type=button value="Delete Markers"></div>
 
+<!--food Photo options start from below-->
 <div id ="photos">
 <div id="cafe" class="foodphotos" style="display: none">
 <table border="0">
   <tr>
-   <td id = "cafePhoto1"><img src="./restaurant pics/cafe bakery.jpg"alt="sample1"width="210" height="160"></td>
-   <td id = "cafePhoto2"><img src="./restaurant pics/cafe donuts.jpg"alt="sample2"width="210" height="160"></td>
-   <td id = "cafePhoto3"><img src="./restaurant pics/cafe maid.jpg"alt="sample3"width="210" height="160"></td>
+   <td id = "cafePhoto1"><img src="./restaurant pics/cafe bakery.jpg"alt="sample1"width="210" height="160" title="Bakery cafe. You can enjoy coffee with bread."></td>
+   <td id = "cafePhoto2"><img src="./restaurant pics/cafe donuts.jpg"alt="sample2"width="210" height="160" title="Donuts and coffee"></td>
+   <td id = "cafePhoto3"><img src="./restaurant pics/cafe maid.jpg"alt="sample3"width="210" height="160" title="Cosplay restaurants. Waitresses dressed in maid costumes act as servants."></td>
   </tr>
   <tr>
-   <td id = "cafePhoto4"><img src="./restaurant pics/cafe neko.jpg"alt="sample4"width="210" height="160"></td>
-   <td id = "cafePhoto5"><img src="./restaurant pics/cafe segafredo.jpg"alt="sample5"width="210" height="160"></td>
-   <td id = "cafePhoto6"><img src="./restaurant pics/cafe starbucks.jpg"alt="sample6"width="210" height="160"></td>
+   <td id = "cafePhoto4"><img src="./restaurant pics/cafe neko.jpg"alt="sample4"width="210" height="160" title="Neko Cafe. A cafe where you play with cats."></td>
+   <td id = "cafePhoto5"><img src="./restaurant pics/cafe segafredo.jpg"alt="sample5"width="210" height="160" title="Espresso cafe"></td>
+   <td id = "cafePhoto6"><img src="./restaurant pics/cafe starbucks.jpg"alt="sample6"width="210" height="160" title="Starbucks"></td>
   </tr>
  </table>
 </div>
@@ -118,14 +122,14 @@
 <div id="meat" class="foodphotos" style="display: none">
 <table border="0">
   <tr>
-   <td id = "meatPhoto1"><img src="./restaurant pics/meat gyudon.jpg"alt="sample1"width="210" height="160"></td>
-   <td id = "meatPhoto2"><img src="./restaurant pics/meat syabusyabu.jpg"alt="sample2"width="210" height="160"></td>
-   <td id = "meatPhoto3"><img src="./restaurant pics/meat steak.jpg"alt="sample3"width="210" height="160"></td>
+   <td id = "meatPhoto1"><img src="./restaurant pics/meat gyudon.jpg"alt="sample1"width="210" height="160" title="Beef bowl. A bowl of rice topped with cooked beef and onions."></td>
+   <td id = "meatPhoto2"><img src="./restaurant pics/meat tonkatsu.jpeg"alt="sample2"width="210" height="160" title="Japanese pork cutlet"></td>
+   <td id = "meatPhoto3"><img src="./restaurant pics/meat steak.jpg"alt="sample3"width="210" height="160" title="Steak"></td>
   </tr>
   <tr>
-   <td id = "meatPhoto4"><img src="./restaurant pics/meat yakiniku.jpg"alt="sample4"width="210" height="160"></td>
-   <td id = "meatPhoto5"><img src="./restaurant pics/meat yakitori.jpg"alt="sample5"width="210" height="160"></td>
-   <td id = "meatPhoto6"><img src="./restaurant pics/meat hamburg.jpg"alt="sample6"width="210" height="160"></td>
+   <td id = "meatPhoto4"><img src="./restaurant pics/meat yakiniku.jpg"alt="sample4"width="210" height="160" title="Yakiniku. Japanese Barbecue."></td>
+   <td id = "meatPhoto5"><img src="./restaurant pics/meat yakitori.jpg"alt="sample5"width="210" height="160" title="Yakitori. Japanese style skewered chicken."></td>
+   <td id = "meatPhoto6"><img src="./restaurant pics/meat hamburg.jpg"alt="sample6"width="210" height="160" title="Salisbury steak"></td>
   </tr>
  </table>
 </div>
@@ -133,14 +137,14 @@
 <div id="ramen" class="foodphotos" style="display: none">
 <table border="0">
   <tr>
-   <td id = "ramenPhoto1"><img src="./restaurant pics/ramen aburasoba.jpg"alt="sample1"width="210" height="160"></td>
-   <td id = "ramenPhoto2"><img src="./restaurant pics/ramen iekei.jpg"alt="sample2"width="210" height="160"></td>
-   <td id = "ramenPhoto3"><img src="./restaurant pics/ramen jiro.jpg"alt="sample3"width="210" height="160"></td>
+   <td id = "ramenPhoto1"><img src="./restaurant pics/ramen aburasoba.jpg"alt="sample1"width="210" height="160" title="Soupless Ramen"></td>
+   <td id = "ramenPhoto2"><img src="./restaurant pics/ramen iekei.jpg"alt="sample2"width="210" height="160" title="A style of ramen with fatty pork-soy-sauce flavored soup with thick flat noodles."></td>
+   <td id = "ramenPhoto3"><img src="./restaurant pics/ramen jiro.jpg"alt="sample3"width="210" height="160" title="Ramen Jiro. Jiro's noodles are as thick as udon, served with a pile of bean sprouts and chunky chashu on top -- garlic optional. The soup is an ultra-fatty pork base."></td>
   </tr>
   <tr>
-   <td id = "ramenPhoto4"><img src="./restaurant pics/ramen shoyu.jpg"alt="sample4"width="210" height="160"></td>
-   <td id = "ramenPhoto5"><img src="./restaurant pics/ramen tonkotsu.jpg"alt="sample5"width="210" height="160"></td>
-   <td id = "ramenPhoto6"><img src="./restaurant pics/ramen tsukemen.jpg"alt="sample6"width="210" height="160"></td>
+   <td id = "ramenPhoto4"><img src="./restaurant pics/ramen shoyu.jpg"alt="sample4"width="210" height="160" title="Ramen noodles in soy-sauce flavored soup"></td>
+   <td id = "ramenPhoto5"><img src="./restaurant pics/ramen tonkotsu.jpg"alt="sample5"width="210" height="160" title="Tonkotsu Ramen. Ramen noodles in pork broth soup"></td>
+   <td id = "ramenPhoto6"><img src="./restaurant pics/ramen tsukemen.jpg"alt="sample6"width="210" height="160" title="Tsukemen. Dipping noodles"></td>
   </tr>
  </table>
 </div>
@@ -148,14 +152,14 @@
 <div id="noodle" class="foodphotos" style="display: none">
 <table border="0">
   <tr>
-   <td id = "noodlePhoto1"><img src="./restaurant pics/noodle champon.jpg"alt="sample1"width="210" height="160"></td>
-   <td id = "noodlePhoto2"><img src="./restaurant pics/noodle hidakaya.jpg"alt="sample2"width="210" height="160"></td>
-   <td id = "noodlePhoto3"><img src="./restaurant pics/noodle pasta.jpg"alt="sample3"width="210" height="160"></td>
+   <td id = "noodlePhoto1"><img src="./restaurant pics/noodle champon.jpg"alt="sample1"width="210" height="160" title="Nagasaki Champon"></td>
+   <td id = "noodlePhoto2"><img src="./restaurant pics/noodle hidakaya.jpg"alt="sample2"width="210" height="160" title="Ramen noodle"></td>
+   <td id = "noodlePhoto3"><img src="./restaurant pics/noodle pasta.jpg"alt="sample3"width="210" height="160" title="Pasta"></td>
   </tr>
   <tr>
-   <td id = "noodlePhoto4"><img src="./restaurant pics/noodle soba.jpg"alt="sample4"width="210" height="160"></td>
-   <td id = "noodlePhoto5"><img src="./restaurant pics/noodle tantanmen.jpg"alt="sample5"width="210" height="160"></td>
-   <td id = "noodlePhoto6"><img src="./restaurant pics/noodle udon.jpg"alt="sample6"width="210" height="160"></td>
+   <td id = "noodlePhoto4"><img src="./restaurant pics/noodle soba.jpg"alt="sample4"width="210" height="160" title="Soba"></td>
+   <td id = "noodlePhoto5"><img src="./restaurant pics/noodle tantanmen.jpg"alt="sample5"width="210" height="160" title="Tantanmen"></td>
+   <td id = "noodlePhoto6"><img src="./restaurant pics/noodle udon.jpg"alt="sample6"width="210" height="160" title="Udon"></td>
   </tr>
  </table>
 </div>
@@ -163,14 +167,14 @@
 <div id="seafood" class="foodphotos" style="display: none">
 <table border="0">
   <tr>
-   <td id = "seafoodPhoto1"><img src="./restaurant pics/seafood kaki.jpg"alt="sample1"width="210" height="160"></td>
-   <td id = "seafoodPhoto2"><img src="./restaurant pics/seafood sashimi.jpg"alt="sample2"width="210" height="160"></td>
-   <td id = "seafoodPhoto3"><img src="./restaurant pics/seafood yakizakana.jpeg"alt="sample3"width="210" height="160"></td>
+   <td id = "seafoodPhoto1"><img src="./restaurant pics/seafood kaki.jpg"alt="sample1"width="210" height="160" title="Oyster bar"></td>
+   <td id = "seafoodPhoto2"><img src="./restaurant pics/seafood sashimi.jpg"alt="sample2"width="210" height="160" title="Sashimi"></td>
+   <td id = "seafoodPhoto3"><img src="./restaurant pics/seafood yakizakana.jpeg"alt="sample3"width="210" height="160" title="Yakizakana"></td>
   </tr>
   <tr>
-   <td id = "seafoodPhoto4"><img src="./restaurant pics/seafood sushi rotate.jpg"alt="sample4"width="210" height="160"></td>
-   <td id = "seafoodPhoto5"><img src="./restaurant pics/seafood unagi.jpg"alt="sample5"width="210" height="160"></td>
-   <td id = "seafoodPhoto6"><img src="./restaurant pics/seafood sushi.jpg"alt="sample6"width="210" height="160"></td>
+   <td id = "seafoodPhoto4"><img src="./restaurant pics/seafood sushi rotate.jpg"alt="sample4"width="210" height="160" title="Sushi"></td>
+   <td id = "seafoodPhoto5"><img src="./restaurant pics/seafood unagi.jpg"alt="sample5"width="210" height="160" title="Eel bowl"></td>
+   <td id = "seafoodPhoto6"><img src="./restaurant pics/seafood sushi.jpg"alt="sample6"width="210" height="160" title="High end Sushi"></td>
   </tr>
  </table>
 </div>
@@ -178,20 +182,22 @@
 <div id="other" class="foodphotos" style="display: none">
 <table border="0">
   <tr>
-   <td id = "otherPhoto1"><img src="./restaurant pics/other hamburger.jpg"alt="sample1"width="210" height="160"></td>
-   <td id = "otherPhoto2"><img src="./restaurant pics/other monjayaki.jpeg"alt="sample2"width="210" height="160"></td>
-   <td id = "otherPhoto3"><img src="./restaurant pics/other okonomiyaki.jpg"alt="sample3"width="210" height="160"></td>
+   <td id = "otherPhoto1"><img src="./restaurant pics/other hamburger.jpg"alt="sample1"width="210" height="160" title="Hamburger"></td>
+   <td id = "otherPhoto2"><img src="./restaurant pics/other monjayaki.jpeg"alt="sample2"width="210" height="160" title="Monjayaki. A type of Japanese pan-fried batter with various ingredients, such as dried squid, sweet corn, and cabbage."></td>
+   <td id = "otherPhoto3"><img src="./restaurant pics/other okonomiyaki.jpg"alt="sample3"width="210" height="160" title="Okonomiyaki. A Japanese-style pancake made from egg, flour and water with lots of toppings."></td>
   </tr>
   <tr>
-   <td id = "otherPhoto4"><img src="./restaurant pics/other otoya.jpg"alt="sample4"width="210" height="160"></td>
-   <td id = "otherPhoto5"><img src="./restaurant pics/other tebasaki.jpg"alt="sample5"width="210" height="160"></td>
-   <td id = "otherPhoto6"><img src="./restaurant pics/other curry.jpg"alt="sample6"width="210" height="160"></td>
+   <td id = "otherPhoto4"><img src="./restaurant pics/other tempura.jpg"alt="sample4"width="210" height="160" title="Tempura"></td>
+   <td id = "otherPhoto5"><img src="./restaurant pics/other syabusyabu.jpg"alt="sample5"width="210" height="160" title="Shabusuabu"></td>
+   <td id = "otherPhoto6"><img src="./restaurant pics/other curry.jpg"alt="sample6"width="210" height="160" title="Curry rice"></td>
   </tr>
  </table>
 </div>
 </div>
+<!--photo options end-->
 
-    <div style="display: none">
+<!--information on google map starts from below-->
+     <div style="display: none">
       <div id="info-content">
         <table>
           <tr id="iw-url-row" class="iw_table_row">
@@ -207,17 +213,18 @@
             <td class="iw_attribute_name">Rating:</td>
             <td id="iw-rating"></td>
           </tr>
-          <tr id="iw-website-row" class="iw_table_row">
-            <td class="iw_attribute_name">Website:</td>
-            <td id="iw-website"></td>
+                    <tr id="iw-ratingscore-row" class="iw_table_row">
+            <td class="iw_attribute_name">Rating score:</td>
+            <td id="iw-ratingscore"></td>
           </tr>
         </table>
       </div>
     </div>
+<!--information on google map end-->
 
     <div id="map"></div>
     <script>
-//add info window & revise photo image option/words & if possible, add AI-like suggestion and add usual search box/input tool
+
 var map;
 var towns = {
 "all": {
@@ -257,17 +264,23 @@ var towns = {
     zoom: 15
 }
 };
-var markers =[];
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 35.681298, lng: 139.766247},
     zoom: 12
   });
+
+infowindow = new google.maps.InfoWindow({
+content:document.getElementById('info-content')
+});
+
   document.getElementById('town').addEventListener(
       'change', setAutocompleteTown);
   document.getElementById("food").addEventListener("change", showPhotos
     );
+
+  //photo click event code starts
   document.getElementById("cafePhoto1").addEventListener("click", cafePhoto1Selected);
   document.getElementById("cafePhoto2").addEventListener("click", cafePhoto2Selected);
   document.getElementById("cafePhoto3").addEventListener("click", cafePhoto3Selected);
@@ -309,17 +322,13 @@ function initMap() {
   document.getElementById("otherPhoto4").addEventListener("click", otherPhoto4Selected);
   document.getElementById("otherPhoto5").addEventListener("click", otherPhoto5Selected);
   document.getElementById("otherPhoto6").addEventListener("click", otherPhoto6Selected);
+//photo click event code ends
 
-//google map search test
 service = new google.maps.places.PlacesService(map);
 }
 
 function setAutocompleteTown(){
 var town = document.getElementById('town').value;
-//if(town === "all"){
-//    map.setCenter({lat: 35.681298, lng: 139.766247});
-//    map.setZoom(11);
-//}else{
     map.setCenter(towns[town].center);
     map.setZoom(towns[town].zoom);
 //}
@@ -352,21 +361,21 @@ for (var i=0;i<foodphotos.length;i++) {
 }
 }
 
-//search map
+var markers =[];
+//search map starts
 function searchMap(foodoption, townoption){
 
+//Abstract town option and bias the area based on the option I choose
+//Abstract food option and bias the food based on the option I choose
 var request = {
-    //Abstracted town option based on the area option
     location: townoption,
     radius: '500',
-  //Abstracted foodoption based on the photo option
     query: foodoption
   };
 
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
-//      var place = results[i];
       createMarker(results[i]);
     }
   }
@@ -378,17 +387,22 @@ function createMarker(place) {
     position: place.geometry.location
   });
   markers.push(marker);
-//infowindow
-infowindow = new google.maps.InfoWindow({
-content:document.getElementById('info-content')
-//content:place.name
-});
-  google.maps.event.addListener(marker, 'click', function() {
 
-    infowindow.open(map, this);
+google.maps.event.addListener(marker, 'click', function() {
+
+service.getDetails({placeId: place.place_id},
+      function(place, status) {
+        if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          return;
+        }
+        infowindow.open(map, marker);
+        buildIWContent(place);
+      });
 
 //build IW content
-document.getElementById('iw-icon').innerHTML = '<img class="restaurantIcon" ' +
+function buildIWContent(place){
+
+  document.getElementById('iw-icon').innerHTML = '<img class="restaurantIcon" ' +
       'src="' + place.icon + '"/>';
   document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
       '">' + place.name + '</a></b>';
@@ -401,9 +415,6 @@ document.getElementById('iw-icon').innerHTML = '<img class="restaurantIcon" ' +
     document.getElementById('iw-phone-row').style.display = 'none';
   }
 
-  // Assign a five-star rating to the hotel, using a black star ('&#10029;')
-  // to indicate the rating the hotel has earned, and a white star ('&#10025;')
-  // for the rating points not achieved.
   if (place.rating) {
     var ratingHtml = '';
     for (var i = 0; i < 5; i++) {
@@ -415,30 +426,18 @@ document.getElementById('iw-icon').innerHTML = '<img class="restaurantIcon" ' +
     document.getElementById('iw-rating-row').style.display = '';
     document.getElementById('iw-rating').innerHTML = ratingHtml;
     }
+    document.getElementById("iw-ratingscore").innerHTML = place.rating;
   } else {
     document.getElementById('iw-rating-row').style.display = 'none';
   }
-    if (place.website) {
-    var fullUrl = place.website;
-    var website = hostnameRegexp.exec(place.website);
-    if (website === null) {
-      website = 'http://' + place.website + '/';
-      fullUrl = website;
-    }
-    document.getElementById('iw-website-row').style.display = '';
-    document.getElementById('iw-website').textContent = website;
-  } else {
-    document.getElementById('iw-website-row').style.display = 'none';
-  }
-
+}
 
   });
 }
 
 service.textSearch(request, callback);
 }
-
-//search map end
+//search map ends
 
 function deleteMarkers(){
 for (var i = 0; i < markers.length; i++) {
@@ -449,10 +448,10 @@ for (var i = 0; i < markers.length; i++) {
   markers = [];
 }
 
+//When each photo is clicked, I want to search the google map and show the results. All search is biased on the area and food category I choose.
 function cafePhoto1Selected(){
 //need to clear up all the search results and markers at first
 deleteMarkers();
-  //need to Abstract "パン屋" based on the photo option
 document.getElementById('autocomplete').value = "パン屋";
 searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
 }
@@ -488,7 +487,7 @@ searchMap(document.getElementById("autocomplete").value, towns[document.getEleme
 }
 function meatPhoto2Selected(){
 deleteMarkers();
-document.getElementById('autocomplete').value = "しゃぶしゃぶ";
+document.getElementById('autocomplete').value = "とんかつ屋";
 searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
 }
 function meatPhoto3Selected(){
@@ -553,7 +552,7 @@ searchMap(document.getElementById("autocomplete").value, towns[document.getEleme
 }
 function noodlePhoto3Selected(){
 deleteMarkers();
-document.getElementById('autocomplete').value = "すぱ次郎";
+document.getElementById('autocomplete').value = "イタリアン";
 searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
 }
 function noodlePhoto4Selected(){
@@ -563,12 +562,12 @@ searchMap(document.getElementById("autocomplete").value, towns[document.getEleme
 }
 function noodlePhoto5Selected(){
 deleteMarkers();
-document.getElementById('autocomplete').value = "担々麺";
+document.getElementById('autocomplete').value = "担々麺のお店";
 searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
 }
 function noodlePhoto6Selected(){
 deleteMarkers();
-document.getElementById('autocomplete').value = "うどん";
+document.getElementById('autocomplete').value = "うどん屋";
 searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
 }
 function seafoodPhoto1Selected(){
@@ -618,17 +617,17 @@ searchMap(document.getElementById("autocomplete").value, towns[document.getEleme
 }
 function otherPhoto4Selected(){
 deleteMarkers();
-document.getElementById('autocomplete').value = "定食屋";
+document.getElementById('autocomplete').value = "てんぷら屋";
 searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
 }
 function otherPhoto5Selected(){
 deleteMarkers();
-document.getElementById('autocomplete').value = "手羽先";
+document.getElementById('autocomplete').value = "しゃぶしゃぶ";
 searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
 }
 function otherPhoto6Selected(){
 deleteMarkers();
-document.getElementById('autocomplete').value = "カレーライス";
+document.getElementById('autocomplete').value = "カレー";
 searchMap(document.getElementById("autocomplete").value, towns[document.getElementById('town').value].center);
 }
     </script>
