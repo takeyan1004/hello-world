@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sekigae</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+<style type="text/css">
+#kyodan1{
+    position: absolute;
+    left: 128px;
+    width: 100px;
+    top: 10px;
+    padding: 4px;
+}
+.table1 {
+    position: absolute;
+    left: 16px;
+    width: 265px;
+    top: 44px;
+    padding: 0px;
+    border-collapse: collapse;
+}
+.table1 th {
+  background-color: #cccccc;
+}
+
+#kyodan2{
+    position: absolute;
+    left: 528px;
+    width: 100px;
+    top: 10px;
+    padding: 4px;
+}
+.table2 {
+    position: absolute;
+    left: 412px;
+    width: 265px;
+    top: 44px;
+    padding: 0px;
+    border-collapse: collapse;
+}
+.table2 th {
+  background-color: #cccccc;
+}
+#sekigae{
+    position: absolute;
+    left: 100px;
+    width: 97px;
+    top: 249px;
+    padding: 4px;
+    cursor: pointer;
+}
+</style>
+  </head>
+  <body>
+
+<div id ="kyodan1">教壇</div>
+<table class="table1" border=1>
+ <tr><th></th><th>列-A</th><th>列-B</th><th>列-C</th><th>列-D</th><th>列-E</th><th>列-F</th></tr>
+ <tr><td>行-1</td><td class = "sekigaenumber eyeRow">A-1</td><td class = "sekigaenumber eyeRow">B-1</td><td class = "sekigaenumber eyeRow">C-1</td><td class = "sekigaenumber eyeRow">D-1</td><td class = "sekigaenumber eyeRow">E-1</td><td class = "sekigaenumber eyeRow">F-1</td></tr>
+ <tr><td>行-2</td><td class = "sekigaenumber eyeRow">A-2</td><td class = "sekigaenumber eyeRow">B-2</td><td class = "sekigaenumber eyeRow">C-2</td><td class = "sekigaenumber eyeRow">D-2</td><td class = "sekigaenumber eyeRow">E-2</td><td class = "sekigaenumber eyeRow">F-2</td></tr>
+ <tr><td>行-3</td><td class = "sekigaenumber">A-3</td><td class = "sekigaenumber">B-3</td><td class = "sekigaenumber">C-3</td><td class = "sekigaenumber">D-3</td><td class = "sekigaenumber">E-3</td><td class = "sekigaenumber">F-3</td></tr>
+ <tr><td>行-4</td><td class = "sekigaenumber">A-1</td><td class = "sekigaenumber">B-4</td><td class = "sekigaenumber">C-4</td><td class = "sekigaenumber">D-4</td><td class = "sekigaenumber">E-4</td><td class = "sekigaenumber">F-4</td></tr>
+ <tr><td>行-5</td><td class = "sekigaenumber">A-2</td><td class = "sekigaenumber">B-5</td><td class = "sekigaenumber">C-5</td><td class = "sekigaenumber">D-5</td><td class = "sekigaenumber">E-5</td><td class = "sekigaenumber">F-5</td></tr>
+ <tr><td>行-6</td><td class = "sekigaenumber">A-3</td><td class = "sekigaenumber">B-6</td><td class = "sekigaenumber">C-6</td><td class = "sekigaenumber">D-6</td><td class = "sekigaenumber">E-6</td><td class = "sekigaenumber">F-6</td></tr>
+</table>
+
+
+<button onclick = "shuffleClass()" id = "sekigae" type="button">席替えする</button>
+    <script>
+//var number = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
+var numbers = [
+ {num:1, eye:true}, {num:2, eye:true}, {num:3, eye:true},
+ {num:4, eye:false}, {num:5, eye:false},
+ {num:6, eye:false}, {num:7, eye:false},
+ {num:8, eye:false}, {num:9, eye:false},
+ {num:10, eye:false}, {num:11, eye:false},
+ {num:12, eye:false}, {num:13, eye:false},
+ {num:14, eye:false}, {num:15, eye:false},
+ {num:16, eye:false}, {num:17, eye:false},
+ {num:18, eye:false}, {num:19, eye:false},
+ {num:20, eye:false}, {num:21, eye:false},
+ {num:22, eye:false}, {num:23, eye:false},
+ {num:24, eye:false}, {num:25, eye:false},
+ {num:26, eye:false}, {num:27, eye:false},
+ {num:28, eye:false}, {num:29, eye:false},
+ {num:30, eye:false}, {num:31, eye:false},
+ {num:32, eye:false}, {num:33, eye:false},
+ {num:34, eye:false}, {num:35, eye:false},{num:36, eye:false}
+];
+console.log(numbers);
+var sekigae = document.getElementById("sekigae");
+function shuffleClass(){
+for(i = numbers.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = numbers[i];
+    numbers[i] = numbers[j];
+    numbers[j] = tmp;
+}
+//console.log(numbers);
+for(i=0; i<numbers.length; i++){
+document.getElementsByClassName("sekigaenumber")[i].innerHTML = numbers[i].num;
+}
+
+for(i=0; i<numbers.length; i++){
+  if(numbers[i].eye){
+
+var eyeRow = document.getElementsByClassName("eyeRow");
+var result = Math.floor(Math.random()*eyeRow.length);
+
+//console.log(Math.floor(Math.random()*eyeRow.length));
+
+var eyeTemp = document.getElementsByClassName("sekigaenumber")[i].innerHTML;
+document.getElementsByClassName("sekigaenumber")[i].innerHTML = eyeRow[result].innerHTML;
+eyeRow[result].innerHTML = eyeTemp;
+
+//console.log(eyeTemp);
+  }
+}
+
+}
+//sekigae.onclick = shuffleClass();
+//sekigae.addEventListener("click", shuffleClass());
+     </script>
+  </body>
+</html>
