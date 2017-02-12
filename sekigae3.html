@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sekigae</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+<style type="text/css">
+#kyodan1{
+    position: absolute;
+    left: 200px;
+    width: 100px;
+    top: 10px;
+    padding: 4px;
+}
+.table1 {
+    position: absolute;
+    left: 16px;
+    width: 265px;
+    top: 44px;
+    padding: 0px;
+    border-collapse: collapse;
+}
+.table1 th {
+  background-color: #cccccc;
+}
+
+#kyodan2{
+    position: absolute;
+    left: 600px;
+    width: 100px;
+    top: 10px;
+    padding: 4px;
+}
+.table2 {
+    position: absolute;
+    left: 412px;
+    width: 373px;
+    top: 44px;
+    padding: 0px;
+    border-collapse: collapse;
+}
+.table2 th {
+  background-color: #cccccc;
+}
+#sekigae{
+    position: absolute;
+    left: 346px;
+    width: 97px;
+    top: 250px;
+    padding: 4px;
+    cursor: pointer;
+}
+</style>
+  </head>
+  <body>
+
+<div id = "kyodan1">教壇</div>
+<table class= "table1" border=1>
+ <tr><th></th><th>列-A</th><th>列-B</th><th>列-C</th><th>列-D</th><th>列-E</th><th>列-F</th></tr>
+ <tr><td>行-1</td><td><input id = "aone" type = "text" size="6"></td><td><input id = "bone" type = "text" size="6"</td><td><input id = "cone" type = "text" size="6"</td><td><input id = "done" type = "text" size="6"</td><td><input id = "eone" type = "text" size="6"</td><td><input id = "fone" type = "text" size="6"</td></tr>
+ <tr><td>行-2</td><td><input id = "atwo" type = "text" size="6"</td><td><input id = "btwo" type = "text" size="6"</td><td><input id = "ctwo" type = "text" size="6"</td><td><input id = "dtwo" type = "text" size="6"</td><td><input id = "etwo" type = "text" size="6"</td><td><input id = "ftwo" type = "text" size="6"</td></tr>
+ <tr><td>行-3</td><td><input id = "athree" type = "text" size="6"</td><td><input id = "bthree" type = "text" size="6"</td><td><input id = "cthree" type = "text" size="6"</td><td><input id = "dthree" type = "text" size="6"</td><td><input id = "ethree" type = "text" size="6"</td><td><input id = "fthree" type = "text" size="6"</td></tr>
+ <tr><td>行-4</td><td><input id = "afour" type = "text" size="6"</td><td><input id = "bfour" type = "text" size="6"</td><td><input id = "cfour" type = "text" size="6"</td><td><input id = "dfour" type = "text" size="6"</td><td><input id = "efour" type = "text" size="6"</td><td><input id = "ffour" type = "text" size="6"</td></tr>
+ <tr><td>行-5</td><td><input id = "afive" type = "text" size="6"</td><td><input id = "bfive" type = "text" size="6"</td><td><input id = "cfive" type = "text" size="6"</td><td><input id = "dfive" type = "text" size="6"</td><td><input id = "efive" type = "text" size="6"</td><td><input id = "ffive" type = "text" size="6"</td></tr>
+ <tr><td>行-6</td><td><input id = "asix" type = "text" size="6"</td><td><input id = "bsix" type = "text" size="6"</td><td><input id = "csix" type = "text" size="6"</td><td><input id = "dsix" type = "text" size="6"</td><td><input id = "esix" type = "text" size="6"</td><td><input id = "fsix" type = "text" size="6"</td></tr>
+</table>
+
+<div id ="kyodan2">教壇</div>
+<table class="table2" border=1>
+ <tr><th></th><th>列-A</th><th>列-B</th><th>列-C</th><th>列-D</th><th>列-E</th><th>列-F</th></tr>
+ <tr><td>行-1</td><td class = "sekigaenumber eyeRow">A-1</td><td class = "sekigaenumber eyeRow">B-1</td><td class = "sekigaenumber eyeRow">C-1</td><td class = "sekigaenumber eyeRow">D-1</td><td class = "sekigaenumber eyeRow">E-1</td><td class = "sekigaenumber eyeRow">F-1</td></tr>
+ <tr><td>行-2</td><td class = "sekigaenumber eyeRow">A-2</td><td class = "sekigaenumber eyeRow">B-2</td><td class = "sekigaenumber eyeRow">C-2</td><td class = "sekigaenumber eyeRow">D-2</td><td class = "sekigaenumber eyeRow">E-2</td><td class = "sekigaenumber eyeRow">F-2</td></tr>
+ <tr><td>行-3</td><td class = "sekigaenumber">A-3</td><td class = "sekigaenumber">B-3</td><td class = "sekigaenumber">C-3</td><td class = "sekigaenumber">D-3</td><td class = "sekigaenumber">E-3</td><td class = "sekigaenumber">F-3</td></tr>
+ <tr><td>行-4</td><td class = "sekigaenumber">A-1</td><td class = "sekigaenumber">B-4</td><td class = "sekigaenumber">C-4</td><td class = "sekigaenumber">D-4</td><td class = "sekigaenumber">E-4</td><td class = "sekigaenumber">F-4</td></tr>
+ <tr><td>行-5</td><td class = "sekigaenumber">A-2</td><td class = "sekigaenumber">B-5</td><td class = "sekigaenumber">C-5</td><td class = "sekigaenumber">D-5</td><td class = "sekigaenumber">E-5</td><td class = "sekigaenumber">F-5</td></tr>
+ <tr><td>行-6</td><td class = "sekigaenumber">A-3</td><td class = "sekigaenumber">B-6</td><td class = "sekigaenumber">C-6</td><td class = "sekigaenumber">D-6</td><td class = "sekigaenumber">E-6</td><td class = "sekigaenumber">F-6</td></tr>
+</table>
+
+<button onclick = "shuffleClass()" id = "sekigae" type="button">席替えする</button>
+    <script>
+//var number = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
+
+
+function shuffleClass(){
+  var sekigae = document.getElementById("sekigae");
+var aone = document.getElementById("aone").value;
+  var bone = document.getElementById("bone").value;
+  var cone = document.getElementById("cone").value;
+  var done = document.getElementById("done").value;
+  var eone = document.getElementById("eone").value;
+  var fone = document.getElementById("fone").value;
+var atwo = document.getElementById("atwo").value;
+  var btwo = document.getElementById("btwo").value;
+  var ctwo = document.getElementById("ctwo").value;
+  var dtwo = document.getElementById("dtwo").value;
+  var etwo = document.getElementById("etwo").value;
+  var ftwo = document.getElementById("ftwo").value;
+var athree = document.getElementById("athree").value;
+  var bthree = document.getElementById("bthree").value;
+  var cthree = document.getElementById("cthree").value;
+  var dthree = document.getElementById("dthree").value;
+  var ethree = document.getElementById("ethree").value;
+  var fthree = document.getElementById("fthree").value;
+var afour = document.getElementById("afour").value;
+  var bfour = document.getElementById("bfour").value;
+  var cfour = document.getElementById("cfour").value;
+  var dfour = document.getElementById("dfour").value;
+  var efour = document.getElementById("efour").value;
+  var ffour = document.getElementById("ffour").value;
+var afive = document.getElementById("afive").value;
+  var bfive = document.getElementById("bfive").value;
+  var cfive = document.getElementById("cfive").value;
+  var dfive = document.getElementById("dfive").value;
+  var efive = document.getElementById("efive").value;
+  var ffive = document.getElementById("ffive").value;
+var asix = document.getElementById("asix").value;
+  var bsix = document.getElementById("bsix").value;
+  var csix = document.getElementById("csix").value;
+  var dsix = document.getElementById("dsix").value;
+  var esix = document.getElementById("esix").value;
+  var fsix = document.getElementById("fsix").value;
+
+  var numbers = [
+ {num:aone, eye:true}, {num:bone, eye:true}, {num:cone, eye:true},
+ {num:done, eye:false}, {num:eone, eye:false}, {num:fone, eye:false},
+ {num:atwo,  eye:false}, {num:btwo,  eye:false},  {num:ctwo, eye:false},
+ {num:dtwo, eye:false}, {num:etwo, eye:false}, {num:ftwo, eye:false},
+ {num:athree, eye:false}, {num:bthree, eye:false}, {num:cthree, eye:false},
+ {num:dthree, eye:false}, {num:ethree, eye:false}, {num:fthree, eye:false},
+ {num:afour, eye:false}, {num:bfour, eye:false}, {num:cfour, eye:false},
+ {num:dfour, eye:false}, {num:efour, eye:false}, {num:ffour, eye:false},
+ {num:afive, eye:false}, {num:bfive, eye:false}, {num:cfive, eye:false},
+ {num:dfive, eye:false}, {num:efive, eye:false}, {num:ffive, eye:false},
+ {num:asix, eye:false}, {num:bsix, eye:false}, {num:csix, eye:false},
+ {num:dsix, eye:false}, {num:esix, eye:false}, {num:fsix, eye:false}
+];
+
+for(i = numbers.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = numbers[i];
+    numbers[i] = numbers[j];
+    numbers[j] = tmp;
+}
+
+for(i=0; i<numbers.length; i++){
+document.getElementsByClassName("sekigaenumber")[i].innerHTML = numbers[i].num;
+}
+
+//replace the bad eye students
+for(i=0; i<numbers.length; i++){
+  if(numbers[i].eye){
+
+var eyeRow = document.getElementsByClassName("eyeRow");
+var result = Math.floor(Math.random()*eyeRow.length);
+
+var eyeTemp = document.getElementsByClassName("sekigaenumber")[i].innerHTML;
+document.getElementsByClassName("sekigaenumber")[i].innerHTML = eyeRow[result].innerHTML;
+eyeRow[result].innerHTML = eyeTemp;
+
+  }
+}
+console.log(numbers);
+console.log(aone);
+}
+//sekigae.onclick = shuffleClass();
+//sekigae.addEventListener("click", shuffleClass());
+     </script>
+  </body>
+</html>
